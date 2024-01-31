@@ -1,22 +1,18 @@
 import { getPostBySlug } from 'lib/api'
 import Container from 'components/container'
 
-export default function Schedule ({
-  title,
-  publish,
-  content,
-  eyecatch,
-  categories
-}) {
+const Schedule = ({ title, publish, content, eyecatch, categories }) => {
   return (
     <Container>
-      <h1>{title}</h1>
+      <h1>記事のタイトル</h1>
     </Container>
   )
 }
+export default Schedule
 
-export async function getStaticProps () {
+export const getStaticProps = async () => {
   const slug = 'schedule'
+
   const post = await getPostBySlug(slug)
   return {
     props: {
