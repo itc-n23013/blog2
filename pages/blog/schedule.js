@@ -4,7 +4,7 @@ import Container from 'components/container'
 const Schedule = ({ title, publish, content, eyecatch, categories }) => {
   return (
     <Container>
-      <h1>記事のタイトル</h1>
+      <h1>{title}</h1>
     </Container>
   )
 }
