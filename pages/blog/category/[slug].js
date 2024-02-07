@@ -14,7 +14,7 @@ const Category = ({ name, posts }) => {
   )
 }
 
-export const getStaticPaths = async () => {
+export async function getStaticPaths () {
   const allCats = await getAllCategories()
   return {
     paths: allCats.map(({ slug }) => `/blog/category/${slug}`),
@@ -22,7 +22,7 @@ export const getStaticPaths = async () => {
   }
 }
 
-export const getStaticProps = async context => {
+export async function getStaticProps (context) {
   const catSlug = context.params.slug
 
   const allCats = await getAllCategories()
@@ -31,7 +31,7 @@ export const getStaticProps = async context => {
   const posts = await getAllPostsByCategory(cat.id)
 
   for (const post of posts) {
-    if (!post.hasOwnProperty('etecatch')) {
+    if (!post.hasOwnProperty('eyecatch')) {
       post.eyecatch = eyecatchLocal
     }
     const { base64 } = await getPlaiceholder(post.eyecatch.url)
