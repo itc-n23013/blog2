@@ -11,8 +11,9 @@ const Category = ({ name }) => {
 }
 
 export const getStaticPaths = async () => {
+  const allCats = await getAllCategories()
   return {
-    paths: ['/blog/category/technology'],
+    paths: allCats.map(({ slug }) => `/blog/category/${slug}`),
     fallback: false
   }
 }
