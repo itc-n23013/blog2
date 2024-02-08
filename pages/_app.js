@@ -33,7 +33,7 @@ const MyApp = ({ Component, pageProps }) => {
           __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Datea());
+              gtag('js', new Date());
 
               gtag('config', '${gtag.GA_MEASUREMENT_ID}');
             `
